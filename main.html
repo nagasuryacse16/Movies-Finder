@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Movies</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script type="text/javascript">
+    function onLoad()
+    {
+          document.getElementById("movie").value="";
+    }
+    function fun()
+    {
+          var searchKey = document.getElementById("movie").value;
+          if(searchKey == "") {
+                   alert("Enter movie name to proceed..");
+          }
+          else {
+                  url = encodeURI("http://www.omdbapi.com/?apikey=1c7d5230"+ "&" + "t=" + searchKey)
+                  fetch(url)
+                  .then(response => response.json() )
+                  .then(data => {
+                  console.log(data)
+                  localStorage.setItem('Mov',JSON.stringify(data));
+                  window.location.href='print.html';
+                })
+                .catch(err => console.log(err))
+              }
+      }
+  </script>
+</head>
+<body onload="onLoad()">
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </div>
+    <div id="tit">MOVIES FIND</div>
+    </br>
+    <center><img src="movies-tiles.jpg" alt="NO PICTURE FOUND" width="100%"/></center>
+  </br></br>
+  <center>
+      <input type="text" class="form-control"  id="movie" placeholder="Enter movie name" name="textfield"/>
+    </br>
+      <input type="submit" value="Search" id="find" onClick="fun()"/>
+    </br></br></br>
+  </center>
+
+
+
+
+</body>
+</html>

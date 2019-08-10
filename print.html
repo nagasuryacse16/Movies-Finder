@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  </head>
+
+<body onload="onLoad()">
+    <a href="main.html">Back</a>
+    <center>
+      <p id="second"> </p>
+      <img id="poster"></img>
+      <p id="desc"/><br/>
+      <p id="sub">Actors: <a href=<span id="act"></a></p>
+      <p id="sub">Genre: <span id="gen"></p>
+      <p id="sub">Language: <span id="lan"></p>
+      <p id="sub">Director: <span id="dir"></p>
+      <p id="sub">Year: <span id="yr"></p>
+      <p id="sub">Writers: <span id="wri"></p>
+      <p id="sub">Production: <span id="prod"></p>
+      <p id="sub">BoxOffice: <span id="box"></p>
+      <p id="sub">Rated: <span id="rat"></p>
+      <p id="sub">Released: <span id="rel"></p>
+      <p id="sub">Runtime: <span id="run"></p>
+      <p id="sub">Awards: <span id="awd"></p>
+      <p id="sub">Ratings:</br>
+       <p id="ratin"></p>
+       <p id="val"></p></br></br>
+       <p id="rati"></p>
+       <p id="valu"></p></br></br>
+       <p id="ra"></p>
+       <p id="valuee"></p></br></br>
+      </p>
+
+    </center>
+    <script>
+    function onLoad(){
+      var data = localStorage.getItem("Mov");
+      var Movie = JSON.parse(data);
+      document.getElementById("second").innerHTML=Movie.Title;
+      document.getElementById("poster").src = Movie.Poster;
+      document.getElementById("desc").innerHTML=Movie.Plot;
+      document.getElementById("act").innerHTML=Movie.Actors;
+      document.getElementById("gen").innerHTML=Movie.Genre;
+      document.getElementById("lan").innerHTML=Movie.Language;
+      document.getElementById("dir").innerHTML=Movie.Director;
+      document.getElementById("yr").innerHTML=Movie.Year;
+      document.getElementById("wri").innerHTML=Movie.Writer;
+      document.getElementById("rat").innerHTML=Movie.Rated;
+      document.getElementById("rel").innerHTML=Movie.Released;
+      document.getElementById("run").innerHTML=Movie.Runtime;
+      document.getElementById("prod").innerHTML=Movie.Production;
+      document.getElementById("box").innerHTML=Movie.BoxOffice;
+      document.getElementById("awd").innerHTML=Movie.Awards;
+
+      document.getElementById("ratin").innerHTML=Movie.Ratings[0].Source;
+      document.getElementById("val").innerHTML=Movie.Ratings[0].Value;
+      document.getElementById("rati").innerHTML=Movie.Ratings[1].Source;
+      document.getElementById("valu").innerHTML=Movie.Ratings[1].Value;
+      document.getElementById("ra").innerHTML=Movie.Ratings[2].Source;
+      document.getElementById("valuee").innerHTML=Movie.Ratings[2].Value;
+
+    }
+    </script>
+
+</body>
+</html>
